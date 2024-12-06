@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chic Cart</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ========================= HEADER =========================== -->
+    <header class="fixed top-0 left-0 py-4 w-full shadow-sm bg-white z-50">
+      <div class="flex justify-between items-center w-[90%] sm:w-[85%] mx-auto">
+        <div id="logo" class="text-2xl font-bold">
+          <span class="text-red-700">Chic</span
+          ><span class="text-slate-800">Cart</span>
+        </div>
+        <nav id="navbar" class="absolute transition h-0 overflow-hidden opacity-0 right-[1px] top-[70px] bg-slate-100 p-5 rounded-lg sm:static sm:overflow-auto sm:opacity-100 sm:h-auto sm:bg-white" >
+          <ul class="flex gap-4 flex-col sm:flex-row sm:gap-10 sm:text-[.9rem] text-[.7rem] lg:text-[1rem] lg:gap-14 font-medium ">
+            <li class="sm:text-[1rem] lg:text-[1.1rem]">Beauty</li>
+            <li class="sm:text-[1rem] lg:text-[1.1rem]">Grocery</li>
+            <li class="sm:text-[1rem] lg:text-[1.1rem]">Furniture</li>
+            <li class="sm:text-[1rem] lg:text-[1.1rem]">Mode</li>
+          </ul>
+        </nav>
+
+        <div class="relative cursor-pointer sm:hidden">
+          <i id="open" class="fa fa-align-right absolute right-0 top-[-8px]" aria-hidden="true"></i>
+          <i id="close" class="fa fa-times absolute right-0 top-[-8px] hidden" aria-hidden="true"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========================= MAIN =========================== -->
+    <main id="product_main" class="mt-24 pt-4 w-[85%] mx-auto z-0">
+      <!-- =============== Filter buttons ================= -->
+      <section id="filters" class="flex flex-wrap gap-3">
+        <button class="filterBtn sm:text-[.9rem] md:text-lg" id="beauty">
+          Beauty
+        </button>
+        <button class="filterBtn sm:text-[.9rem] md:text-lg" id="grocery">
+          Grocery
+        </button>
+        <button class="filterBtn sm:text-[.9rem] md:text-lg" id="furniture">
+          Furniture
+        </button>
+        <select class="filterBtn sm:text-[.9rem] md:text-lg outline-none">
+          <option value="4">Four or above ratings</option>
+          <option value="3">Three or above ratings</option>
+        </select>
+        <button class="filterBtn sm:text-[.9rem] md:text-lg" id="lessThen4">
+          Less then 4 ratings
+        </button>
+        <button class="filterBtn sm:text-[.9rem] md:text-lg" id="greaterThen4">
+          Greater then 4 ratings
+        </button>
+        <button class="filterBtn sm:text-[.9rem] md:text-lg" id="sortByRatings">
+          Sort by ratings
+        </button>
+        <button class="filterBtn sm:text-[.9rem] md:text-lg" id="sortByPrices">
+          Sort by prices
+        </button>
+      </section>
+
+      <section id="searchBar" class="flex md:justify-between md:flex-row mt-5">
+        <h2 class="text-xl font-medium">Choose your peach</h2>
+        <input
+          id="search"
+          type="text"
+          placeholder="Search your beauty..."
+          class="border px-2 py-2 w-[60%] rounded-lg outline-none border-2 border-[#CDECE1FF] focus:border-[#9DECE1FF]"
+        />
+      </section>
+
+      <section
+        id="products_container"
+        class="relative grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-10"
+      >
+        <!-- Data will come while fetching and spinner will be dissapear -->
+        <div
+          class="absolute top-0 left-[48%] animate-spin rounded-full h-20 w-20 border-t-4 border-[#86EDC9]"
+        ></div>
+      </section>
+
+      <section id="productInfo"></section>
+    </main>
+
+    <!-- ========================= FOOTER =========================== -->
+    <script src="./scripts/variableDefine.js"></script>
+    <script type="module" src="./app.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </body>
+</html>

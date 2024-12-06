@@ -1,0 +1,229 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+.filterBtn {
+    border: none;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background-color: #CDECE1FF;
+    color: #111;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    /* font-size: .6rem; */
+}
+
+select option {
+    background-color: #eee;
+    color: #111;
+}
+
+@media screen and (max-width: 1024px) {
+    .general_info {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .reviewsLists {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #products_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #searchBar {
+        flex-direction: column-reverse;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .generalDetails {
+        width: 100%;
+    }
+
+    .deepInfoTitle {
+        font-size: .8rem;
+    }
+
+
+}
+
+@media screen and (max-width: 700px) {
+    #products_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #search {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .deep_info {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+
+@media screen and (max-width: 560px) {
+
+    .productData .cardTitle {
+        font-size: .9rem;
+    }
+
+    .productData .cardRatingPrice {
+        font-size: .7rem;
+        margin-top: .2rem;
+    }
+
+    .barCat {
+        font-size: 2.2vw;
+    }
+
+    .cardCategory {
+        font-size: .8rem;
+    }
+
+    .filterBtn {
+        font-size: .9rem;
+    }
+
+    .thumbnail {
+        width: 150px;
+        height: 150px;
+    }
+
+    .thumbnailBrand {
+        font-size: 1rem;
+    }
+
+    .infoTitle {
+        font-size: 1rem;
+    }
+
+    .infoDescription {
+        font-size: .9rem;
+    }
+
+    .deepInfoTitle {
+        font-size: .7rem;
+    }
+
+    .deepInfoSubTitle {
+        font-size: .6rem;
+    }
+
+    .infoDelivery {
+        font-size: .8rem;
+    }
+
+    .categoryTitle,
+    .reviewsTitle {
+        font-size: .9rem;
+    }
+    .categoryLists {
+        margin-left: 2px;
+    }
+
+    .categoryItem {
+        font-size: .8rem;
+    }
+
+    .reviewsName {
+        font-size: .9rem;
+    }
+    .reviewsRating {
+        font-size: .8rem;
+    }
+    .reviewsComment {
+        font-size: .7rem;
+    }
+    .reviewsEmail {
+        font-size: .6rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .productData .cardTitle {
+        font-size: .7rem;
+    }
+
+    .productData .cardRatingPrice {
+        font-size: .6rem;
+        margin-top: .2rem;
+    }
+
+    .arrowLeft {
+        font-size: 6vw;
+    }
+
+    .cardCategory {
+        font-size: .7rem;
+    }
+
+    .filterBtn {
+        font-size: .7rem;
+    }
+
+    .thumbnail {
+        width: 130px;
+        height: 130px;
+    }
+
+    .thumbnailBrand {
+        font-size: .9rem;
+    }
+
+    .infoTitle {
+        font-size: .9rem;
+    }
+
+    .infoDescription {
+        font-size: .8rem;
+    }
+
+    .infoRatingPrice {
+        font-size: .8rem;
+    }
+
+    .infoWarranty {
+        font-size: .9rem;
+    }
+
+    .deepInfoTitle {
+        font-size: .7rem;
+    }
+
+    /* .deep_info {
+        grid-template-columns: repeat(2, 1fr);
+    } */
+
+    .deliveryInfo {
+        grid-template-columns: 1fr;
+    }
+
+    .reviewsLists{
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 385px) {
+    .categoryLists {
+        flex-direction: column;
+    }
+}
+
