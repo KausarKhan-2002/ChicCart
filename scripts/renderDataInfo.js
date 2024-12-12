@@ -12,8 +12,8 @@ export function RENDER_DATA_INFO(productData, apiData) {
     // Iterate product data to get ID
     for (let item of productData) {
       item.addEventListener("click", () => {
-        let filterDataInfo = filterApiData(Number(item.id));
-        renderInfoByData(filterDataInfo);
+        let filterData = filterApiData(Number(item.id));
+        renderInfoByData(filterData);
       });
     }
   };

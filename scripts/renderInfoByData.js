@@ -1,78 +1,107 @@
+import { RENDER_DATA } from "./renderData.js";
+import { addToCart } from "./addToCart.js";
+
 export function renderInfoByData(dataInfo) {
-    const handleTags = (tags) => {
-      let data = ""
   
-      tags.forEach((item, ind) => {
-        data += `
-        <li class="categoryItem px-10 py-4 rounded-md shadow-sm bg-[#fcfcfc] border-b-2 border-[#86EDC9]">${ind+1}. ${item}</li>
-      `
-      })
-  
-      return data
-    }
-  
-    const handleReviews = (reviews) => {
-      let data = ""
-  
-      // ============= Inner function ==============
-      const handleRatings = (ratings) => {
-        let reviewData = ""
-  
-        for (let i = 0; i < ratings; i++) {
-          reviewData += `
+  const handleTags = (tags) => {
+    let data = "";
+
+    tags.forEach((item, ind) => {
+      data += `
+        <li class="categoryItem px-10 py-4 rounded-md shadow-sm bg-[#fcfcfc] border-b-2 border-[#86EDC9]">${
+          ind + 1
+        }. ${item}</li>
+      `;
+    });
+
+    return data;
+  };
+
+  const handleReviews = (reviews) => {
+    let data = "";
+
+    // ============= Inner function ==============
+    const handleRatings = (ratings) => {
+      let reviewData = "";
+
+      for (let i = 0; i < ratings; i++) {
+        reviewData += `
             <i class="fa fa-star text-green-500" aria-hidden="true"></i>
-          `
-        }
-        
-        return reviewData
+          `;
       }
-  
-      reviews.forEach((item) => {
-        data += `
+
+      return reviewData;
+    };
+
+    reviews.forEach((item) => {
+      data += `
           <div class="relative border-b-2 border-[#86EDC9] shadow-sm bg-[#fcfcfc] pt-4 rounded-t-lg">
             
-            <h3 class="reviewsName text-[.9rem] sm:text-[1.1rem] text-center text-lg">${item.reviewerName}</h3>
-            <p class="reviewsRating text-[.9rem] text-center mt-1 mb-1">${handleRatings(item.rating)}</p>
-            <p class="reviewsComment text-[.9rem] text-center mb-2 text-slate-700">${item.comment}</p>
-            <p class="reviewsEmail text-center text-[.7rem] bg-[#86EDC9] rounded-t-lg py-1 px-3">${item.reviewerEmail}</p>
+            <h3 class="reviewsName text-[.9rem] sm:text-[1.1rem] text-center text-lg">${
+              item.reviewerName
+            }</h3>
+            <p class="reviewsRating text-[.9rem] text-center mt-1 mb-1">${handleRatings(
+              item.rating
+            )}</p>
+            <p class="reviewsComment text-[.9rem] text-center mb-2 text-slate-700">${
+              item.comment
+            }</p>
+            <p class="reviewsEmail text-center text-[.7rem] bg-[#86EDC9] rounded-t-lg py-1 px-3">${
+              item.reviewerEmail
+            }</p>
           </div>
-        `
-      })
-  
-      return data
-      
-    }
-  
-    productsContainer.innerHTML = ""
-  
-    let dataInformation = `
-    <section id="info_container" class="sm:w-[85%] lg:w-[80%] mx-auto">
+        `;
+    });
+
+    return data;
+  };
+
+  productsContainer.innerHTML = "";
+
+  let dataInformation = `
+    <section id="info_container" class="relative sm:w-[85%] lg:w-[80%] mx-auto">
       <div class="flex justify-between items-center text-[.8rem] gap-10 w-[90%] mx-auto">
         <div class="flex gap-20 items-center text-slate-700">
-          <p class="arrowLeft text-2xl cursor-pointer"><i class="fa fa-arrow-left" aria-hidden="true"></i></p>
-          <p class="barCat"><span class="text-medium text-md">Barcode:</span> ${dataInfo.meta.barcode}</p>
+          <p class="arrowLeft text-2xl cursor-pointer"><i id="arrowLeft" class="fa fa-arrow-left" aria-hidden="true"></i></p>
+          <p class="barCat"><span class="text-medium text-md">Barcode:</span> ${
+            dataInfo.meta.barcode
+          }</p>
         </div>
         <p class="barCat">Category: ${dataInfo.category.toUpperCase()}</p>
       </div>
   
       <div id="general_info" class="general_info flex lg:flex-row lg:justify-between items-center mt-5 pb-7">
         <div class="flex flex-col items-center">
-          <img src=${dataInfo.thumbnail} class="thumbnail bg-[#86EDC9] w-[200px] h-[200px] rounded-full"/>
-          <h3 class="thumbnailBrand text-lg mt-3 font-medium">${dataInfo.brand}</h3>
+          <img src=${
+            dataInfo.thumbnail
+          } class="thumbnail bg-[#86EDC9] w-[200px] h-[200px] rounded-full"/>
+
+          <h3 class="thumbnailBrand text-lg mt-3 font-medium">${
+            dataInfo.brand
+          }</h3>
         </div>
   
-        <div class="generalDetails md:w-[65%]">
+        <div class="relative generalDetails md:w-[65%]">
           <h3 class="infoTitle text-xl font-medium mb-2">${dataInfo.title}</h3>
           <p class="infoDescription text-slate-700">${dataInfo.description}</p>
-          <p class="infoRatingPrice mt-5"><i class="fa fa-star ${dataInfo.rating >= 3 ? "text-green-500" : "text-red-500"}" aria-hidden="true"></i>
+          <p class="infoRatingPrice mt-5"><i class="fa fa-star ${
+            dataInfo.rating >= 3 ? "text-green-500" : "text-red-500"
+          }" aria-hidden="true"></i>
               <span>${dataInfo.rating}</span> &nbsp; - &nbsp;
-              <span class="font-medium">&#8377;</span> <span>${dataInfo.price}</span>
+              <span class="font-medium">&#8377;</span> <span>${
+                dataInfo.price
+              }</span>
           </p>
           <p class="infoWarranty flex items-center gap-2 mt-2 bg-[#86EDC9] text-slate-600 font-bold py-1 px-2 rounded-b-2xl">
              <i class="fa fa-check-circle-o text-2xl text-green-800" aria-hidden="true"></i> 
              ${dataInfo.warrantyInformation}
-          </p>
-        </div>
+             </p>
+             <div id="checkoutBtns" class="fixed bottom-0 left-0 sm:static sm:mt-4 sm:flex sm:gap-3 grid grid-cols-2 w-full z-[999] text-[.7rem] sm:text-[.8rem] lg:text-[.9rem] font-bold">
+               <button id="addCart" class="addCart py-2 bg-red-500 text-slate-100 sm:px-5 sm:py-1">Add To Cart</button>
+               <button id="buyNow" class="buyNow bg-slate-200 text-slate-600 py-2 sm:px-5 sm:py-1">Buy Now</button>
+             </div>
+          </div>
+
       </div>
   
       <div id="deep_info" class="deep_info grid sm:grid-cols-4 gap-4 pt-7 border-t-2 border-slate-100">
@@ -121,9 +150,41 @@ export function renderInfoByData(dataInfo) {
   
       <div id="qrCode" class="pt-20 flex flex-col justify-center items-center bg-[#fcfcfc]">
         <h2 class="text-[.8rem] sm:text-[1.1rem] lg:text-[1.2rem] xl:text-[1.3rem] 2xl:text-[1.5rem] font-medium mb-2">You can scan here to pay in easy way</h2>
-        <img src=${dataInfo.meta.qrCode} class="w-[100px] sm:w-[150px] lg:w-[180px] xl:w-[200px] 2xl:w-[230px]"/>
+        <img src=${
+          dataInfo.meta.qrCode
+        } class="w-[100px] sm:w-[150px] lg:w-[180px] xl:w-[200px] 2xl:w-[230px]"/>
       </div>
     </section>
-    `
-    productsMain.innerHTML = dataInformation
+    `;
+  
+  productsMain.innerHTML = dataInformation;
+  
+  
+  // Handle arrow left to go back for landing page
+  let arrowLeft = document.getElementById("arrowLeft");
+  const handleArrowLeft = (API) => {
+
+    arrowLeft.addEventListener("click", async () => {
+      productsMain.innerHTML = ""
+
+      // It will add protection data again in productsMain defined in variable define file
+      protectData()
+
+      try {
+        const data = await fetch(API);
+        const response = await data.json();
+        // console.log(response.products);
+
+        RENDER_DATA(response.products)
+      } catch (error) {
+        console.log(error);
+      }
+    });
   };
+
+  let cartBtns = document.querySelector(".addCart")
+  
+  addToCart(cartBtns, dataInfo)
+
+  handleArrowLeft(API);
+}
