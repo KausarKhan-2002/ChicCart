@@ -13,13 +13,14 @@ export function renderCartItems() {
   cartBody.classList.add("lg:flex", "justify-between")
 
   if (cartArr.length === 0) {
-    cartContainer.innerHTML = "";
-    productsMain.innerHTML = "";
-    // Button icon, To leave cart and redirect to the landing page
-    productsMain.innerHTML = `
-       <i id="arrowLeft" class="fa fa-arrow-left mb-2 cursor-pointer" aria-hidden="true"></i>
-     `;
-    cartBody.innerHTML += `<h1 class="text-center text-2xl">Your cart is empty...</h1>`;
+    cartBody.innerHTML = "";
+    productsMain.innerHTML = ""
+    
+    cartBody.innerHTML = `
+      <i id="arrowLeft" class="fa fa-arrow-left mb-2 cursor-pointer" aria-hidden="true"></i>
+      <h1 class="text-center text-2xl">Your cart is empty...</h1>
+    `;
+
     productsMain.appendChild(cartBody);
     const arrowLeft = document.getElementById("arrowLeft");
     leaveCart(arrowLeft);

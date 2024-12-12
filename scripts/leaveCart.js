@@ -1,6 +1,7 @@
 import { RENDER_DATA } from "./renderData.js";
 
 export function leaveCart(arrowLeft) {
+  
   const handleLeaveCart = async () => {
     productsMain.innerHTML = "";
 
