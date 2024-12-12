@@ -14,7 +14,7 @@ export const handleQuantity = (btns) => {
           const incrTotalPrice =
             btn.parentElement.parentElement.lastElementChild;
 
-          console.log(incrTotalPrice);
+          // console.log(incrTotalPrice);
 
           prevEle.innerText = Number(prevEle.innerText) + 1;
           const totalPrice = Number(incrTotalPrice.innerText) + price;
@@ -30,8 +30,8 @@ export const handleQuantity = (btns) => {
           const decrTotalPrice =
             btn.parentElement.parentElement.lastElementChild;
 
-          console.log(decrTotalPrice);
-          console.log(price);
+          // console.log(decrTotalPrice);
+          // console.log(price);
           
 
           if (Number(nextEle.innerText).toFixed(2) > 1) {

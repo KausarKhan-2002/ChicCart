@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="text-slate-700">
+
     <!-- ========================= HEADER =========================== -->
-    <header class="fixed top-0 left-0 py-4 w-full shadow-sm bg-white z-50">
+    <header class="fixed top-0 left-0 w-full h-16 flex items-center w-full shadow-sm bg-white z-50">
       <div class="flex justify-between items-center w-[90%] sm:w-[85%] mx-auto">
         <div id="logo" class="text-2xl font-bold">
           <span class="text-red-700">Chic</span
@@ -25,29 +26,29 @@
           class="absolute transition h-0 overflow-hidden opacity-0 right-[5px] top-[70px] bg-slate-100 p-5 rounded-lg sm:static sm:overflow-visible sm:opacity-100 sm:h-auto sm:bg-white sm:p-0"
         >
           <ul
-            class="flex gap-5 flex-col sm:flex-row sm:gap-16 sm:text-[.9rem] text-[.7rem] lg:text-[1rem] lg:gap-20 font-medium"
+            class="flex flex-col items-center sm:flex-row sm:gap-10 text-[.9rem]  sm:text-[1rem] lg:text-[1rem] lg:gap-20 font-medium"
           >
             <li
               class="relative sm:text-[1rem] lg:text-[1.1rem] text-slate-800 cursor-pointer"
             >
-              <div id="cartSection">
+              <div id="cartSection" class="cartDisable py-3 px-2 sm:py-2 sm:px-3">
                 <i class="fa fa-cart-plus text-xl" aria-hidden="true"></i> Cart
               </div>
               <span
                 id="cartLength"
-                class="cartCount absolute flex justify-center items-center w-4 h-4 top-[4px] right-[-3px] text-[.6rem] sm:w-5 sm:h-5 sm:top-[-2px] sm:right-[-24px] sm:text-[.7rem] text-slate-100 rounded-full bg-red-600"
+                class="cartCount absolute flex justify-center items-center w-4 h-4 top-[6px] right-[-8px] text-[.6rem] text-center sm:w-5 sm:h-5 sm:top-[-2px] sm:right-[-13px] sm:text-[.7rem] text-slate-100 rounded-full bg-red-600"
                 >0</span
               >
             </li>
             <li
-              class="sm:text-[1rem] lg:text-[1.1rem] text-slate-800 cursor-pointer"
+              class="cartDisable sm:text-[1rem] py-3 px-2 sm:py-2 sm:px-3 lg:text-[1.1rem] text-slate-800 cursor-pointer "
             >
               <i class="fa fa-moon-o text-xl" aria-hidden="true"></i> Night
             </li>
             <li
-              class="sm:text-[1rem] lg:text-[1.1rem] text-slate-800 cursor-pointer"
+              class="sm:text-[1rem] py-3 lg:text-[1.1rem] text-slate-800 cursor-pointer"
             >
-              <button class="border px-3 py-1 rounded-md">Sign in</button>
+              <button class="cartDisable border px-3 py-1 rounded-md">Sign in</button>
             </li>
           </ul>
         </nav>

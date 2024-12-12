@@ -1,20 +1,29 @@
 import { RENDER_DATA } from "./scripts/renderData.js";
 import { renderCartItems } from "./scripts/renderCartItems.js";
 
-
 // ====================== Navbar =========================
+
+// It will handle navbar and make it either visible or hidden
+const handleCartVisibility = (isVisible) => {
+  if (isVisible) {
+    navbar.style.height = "auto";
+    navbar.style.opacity = "1";
+    openNav.style.display = "none";
+    closeNav.style.display = "inline-block";
+  } else {
+    navbar.style.height = "0";
+    navbar.style.opacity = "0";
+    openNav.style.display = "inline-block";
+    closeNav.style.display = "none";
+  }
+};
+
 openNav.addEventListener("click", () => {
-  navbar.style.height = "auto";
-  navbar.style.opacity = "1";
-  openNav.style.display = "none";
-  closeNav.style.display = "inline-block";
+  handleCartVisibility(true);
 });
 
 closeNav.addEventListener("click", () => {
-  navbar.style.height = "0";
-  navbar.style.opacity = "0";
-  openNav.style.display = "inline-block";
-  closeNav.style.display = "none";
+  handleCartVisibility(false);
 });
 
 async function FETCH_DATA(API) {
@@ -38,13 +47,9 @@ async function FETCH_DATA(API) {
 
       // After filtering data render those data
       RENDER_DATA(filterData);
-      
     });
-    
-    
+
     RENDER_DATA(response.products);
-
-
   } catch (error) {
     console.log(error);
   }
@@ -52,11 +57,19 @@ async function FETCH_DATA(API) {
 
 FETCH_DATA(API);
 
-
 // ======================= Cart section ==========================
+const cartDisabled = document.querySelectorAll(".cartDisable");
 cartSection.addEventListener("click", () => {
-  const cartContainer = document.createElement("div")
-  cartContainer.id = "cartContainer"
+  renderCartItems();
+});
 
-  renderCartItems()
-})
+// Add media query using js
+const mediaQuery = window.matchMedia("(max-width: 640px")
+
+if (mediaQuery.matches) {
+  cartDisabled.forEach((cartItem) => {
+    cartItem.addEventListener("click", () => {
+      handleCartVisibility(false);
+    });
+  });
+};

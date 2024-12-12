@@ -2,7 +2,7 @@ import { leaveCart } from "./leaveCart.js";
 import { handleQuantity } from "./handleQuantity.js";
 
 export function renderCartItems() {
-  console.log(cartArr);
+  // console.log(cartArr);
 
   let totalPrice = 0
 
@@ -15,9 +15,9 @@ export function renderCartItems() {
   if (cartArr.length === 0) {
     cartBody.innerHTML = "";
     productsMain.innerHTML = ""
-    
+
     cartBody.innerHTML = `
-      <i id="arrowLeft" class="fa fa-arrow-left mb-2 cursor-pointer" aria-hidden="true"></i>
+      <i id="arrowLeft" class="fa fa-arrow-left mb-2 cursor-pointer py-3 px-8 text-[1.3rem]" aria-hidden="true"></i>
       <h1 class="text-center text-2xl">Your cart is empty...</h1>
     `;
 
@@ -33,16 +33,16 @@ export function renderCartItems() {
                 </div>
 
                 <div class="flex justify-between items-center col-span-2">
-                    <p class="text-[.7rem] sm:text-[.9rem] lg:text-[1rem] xl:text-[1.1rem]"><i class="fa fa-inr" aria-hidden="true"></i> ${item.price}</p>
-                    <div class="relative w-12 sm:w-14 lg:w-16 xl:w-20 flex gap-5 sm:gap-7 lg:gap-8 xl:gap-9 justify-center items-center">
-                        <button class="decr absolute top-[50%] left-0 text-[1.3rem] sm:text-[1.4rem] lg:text-[1.5rem] xl:text-[1.6rem] font-bold w-[10px] h-[1.8px] bg-slate-600"></button>
-                        <span class="count text-[.7rem]">1</span>
-                        <button class="incr absolute bottom-[-26%] sm:bottom-[-30%] lg:bottom-[-48%] right-0 text-[1.2rem] sm:text-[1.3rem] lg:text-[1.4rem] xl:text-[1.5rem]">+</button>
+                    <p class="text-[.8rem] sm:text-[.9rem] lg:text-[1rem] xl:text-[1.1rem]"><i class="fa fa-inr" aria-hidden="true"></i> ${item.price}</p>
+                    <div class="relative border-2 flex items-center justify-between w-[14vw]">
+                        <button class="decr text-[.9rem] sm:text-[1rem] lg:text-[1.1rem] text-slate-500"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                        <span class="count text-[.9rem] sm:text-[1.1rem] lg:text-[1.2rem]">1</span>
+                        <button class="incr text-[.9rem] sm:text-[1rem] lg:text-[1.1rem] text-slate-500"><i class="fa fa-plus" aria-hidden="true"></i></button>
                     </div>
-                    <p class="text-[.7rem] sm:text-[.9rem] lg:text-[1rem] xl:text-[1.1rem] font-medium"><i class="fa fa-inr" aria-hidden="true"></i> ${item.price}</p>
+                    <p class="text-[.8rem] sm:text-[.9rem] lg:text-[1rem] xl:text-[1.1rem] font-medium"><i class="fa fa-inr" aria-hidden="true"></i> ${item.price}</p>
                 </div>
 
-                <h2 class="text-[.7rem] sm:text-[.9rem] lg:text-[1rem] xl:text-[1.1rem] font-medium mt-1">${item.title}</h2>
+                <h2 class="text-[.8rem] sm:text-[.9rem] lg:text-[1rem] xl:text-[1.1rem] font-medium mt-1">${item.title}</h2>
                 
             </section>
             `;
@@ -113,14 +113,14 @@ export function renderCartItems() {
 
     productsMain.innerHTML = "";
     productsMain.innerHTML = `
-     <i id="arrowLeft" class="fa fa-arrow-left mb-2 cursor-pointer" aria-hidden="true"></i>
+     <i id="arrowLeft" class="fa fa-arrow-left py-3 px-8 mb-2 text-[1.3rem] cursor-pointer" aria-hidden="true"></i>
     `;
 
     productsMain.appendChild(cartBody)
     
     const cartData = document.getElementById("cartData")
     cartData.innerHTML += cartItem
-    console.log(cartItem);
+    // console.log(cartItem);
     
 
     // To increment or decrement cart item

@@ -60,6 +60,7 @@ export function renderInfoByData(dataInfo) {
 
   let dataInformation = `
     <section id="info_container" class="relative sm:w-[85%] lg:w-[80%] mx-auto">
+    <div id="msg" class="fixed left-[-100%] bottom-0 bg-red-500 transition ease-in-out delay-150 text-slate-100 font-bold z-[1000] py-2 px-5 w-[50%] sm:w-[100%] text-center text-[.8rem]">Item is added <i class="fa fa-check text-green-600" aria-hidden="true"></i></div>
       <div class="flex justify-between items-center text-[.8rem] gap-10 w-[90%] mx-auto">
         <div class="flex gap-20 items-center text-slate-700">
           <p class="arrowLeft text-2xl cursor-pointer"><i id="arrowLeft" class="fa fa-arrow-left" aria-hidden="true"></i></p>
@@ -95,13 +96,13 @@ export function renderInfoByData(dataInfo) {
           <p class="infoWarranty flex items-center gap-2 mt-2 bg-[#86EDC9] text-slate-600 font-bold py-1 px-2 rounded-b-2xl">
              <i class="fa fa-check-circle-o text-2xl text-green-800" aria-hidden="true"></i> 
              ${dataInfo.warrantyInformation}
-             </p>
-             <div id="checkoutBtns" class="fixed bottom-0 left-0 sm:static sm:mt-4 sm:flex sm:gap-3 grid grid-cols-2 w-full z-[999] text-[.7rem] sm:text-[.8rem] lg:text-[.9rem] font-bold">
-               <button id="addCart" class="addCart py-2 bg-red-500 text-slate-100 sm:px-5 sm:py-1">Add To Cart</button>
-               <button id="buyNow" class="buyNow bg-slate-200 text-slate-600 py-2 sm:px-5 sm:py-1">Buy Now</button>
-             </div>
+          </p>
+          <div id="checkoutBtns" class="fixed bottom-0 left-0 sm:static sm:mt-4 sm:flex sm:gap-3 grid grid-cols-2 w-full z-[999] text-[.8rem] sm:text-[.9rem] lg:text-[1rem] font-bold">
+            <button id="addCart" class="addCart transition ease-in-out delay-150 py-3 bg-red-500 text-slate-100 sm:px-5 sm:py-1">Add To Cart</button>
+            <button id="buyNow" class="buyNow bg-slate-200 text-slate-600 py-3 sm:px-5 sm:py-1">Buy Now</button>
           </div>
 
+        </div>
       </div>
   
       <div id="deep_info" class="deep_info grid sm:grid-cols-4 gap-4 pt-7 border-t-2 border-slate-100">
@@ -183,6 +184,15 @@ export function renderInfoByData(dataInfo) {
   };
 
   let cartBtns = document.querySelector(".addCart")
+  let msg = document.getElementById("msg")
+
+  cartBtns.addEventListener("click", () => {
+    msg.style.left = "0"
+
+    setTimeout(() => {
+      msg.style.left = "-100%"
+    },1000)
+  })
   
   addToCart(cartBtns, dataInfo)
 
